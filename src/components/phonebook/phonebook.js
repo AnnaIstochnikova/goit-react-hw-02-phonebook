@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import { ContactList } from './contact-list/contactList';
 import { Filter } from './filter/filter';
+import { ContactList } from './contact-list/contactList';
 import { ContactForm } from './contact-form/contactForm';
 
 export class Phonebook extends Component {
@@ -16,6 +17,11 @@ export class Phonebook extends Component {
       const contactsAfterDelete = [
         ...prevState.contacts.filter(oldContact => oldContact !== contact),
       ];
+      if (contactsAfterDelete.length === 0) {
+        return {
+          showContactList: false,
+        };
+      }
       return {
         contacts: contactsAfterDelete,
       };
