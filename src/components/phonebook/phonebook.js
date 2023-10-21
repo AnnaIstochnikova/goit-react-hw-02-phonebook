@@ -66,5 +66,10 @@ const NamesList = ({ allContacts, id }) => {
       </li>
     );
   });
-  return <ul>{listItems}</ul>;
+  return (
+    <ul>
+      <h2>Contacts</h2>
+      {listItems}
+    </ul>
+  );
 };

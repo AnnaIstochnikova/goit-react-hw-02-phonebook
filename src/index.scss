@@ -20,30 +20,47 @@ code {
 form {
   margin-top: 50px;
 }
+
 h2 {
   font-size: 30px;
   margin: 0;
+  margin-bottom: 20px;
 }
+
 div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .button--submit {
-  padding: 5px;
-  border-width: 0.5px;
   border-color: rgb(86, 86, 86);
   color: white;
+  background-color: #23272f;
+  width: 150px;
+  font-weight: 700;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: #149eca;
+  }
+}
+
+input {
+  padding-left: 15px;
+  width: 200px;
+}
+
+input,
+.button--submit {
+  height: 26px;
+  font-family: 'Gruppo', sans-serif;
+  font-size: 20px;
   border-style: double;
   border-radius: 15px;
-  background-color: #23272f;
-  margin: 15px;
-  width: 200px;
-  font-family: 'Gruppo', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  border-width: 0.5px;
 }
-.button--submit:hover {
-  cursor: pointer;
-  background-color: #149eca;
+
+ul {
+  padding-left: 0;
 }
