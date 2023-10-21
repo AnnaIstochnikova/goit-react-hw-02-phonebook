@@ -32,6 +32,12 @@ export class Phonebook extends Component {
     let phoneNumber = form.elements.number.value;
 
     this.setState(prevState => {
+      for (const element of prevState.contacts) {
+        if (element.includes(name)) {
+          alert(`${name} is already in contacts`);
+          return;
+        }
+      }
       const allContacts = [...prevState.contacts, `${name}: ${phoneNumber}`];
       return {
         contacts: allContacts,
