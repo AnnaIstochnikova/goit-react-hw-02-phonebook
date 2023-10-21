@@ -8,54 +8,27 @@ const INITIAL_STATE = {
 export class Phonebook extends Component {
   state = { contacts: [], name: '' };
 
-  //   handleChange = event => {
-  //     this.setState({ name: event.currentTarget.form.elements.value });
-  //   };
-
   handleSubmit = event => {
     event.preventDefault();
-    console.log(event);
     const form = event.currentTarget;
     const name = form.elements.name.value;
-    //this.props.onSubmit({ ...this.state });
-    //this.handleChange();
     this.setState(prevState => {
-      const newAndOldContacts = [...prevState.contacts, name];
+      const allContacts = [...prevState.contacts, name];
       return {
-        contacts: newAndOldContacts,
+        contacts: allContacts,
         name: '',
       };
     });
-
-    //this.reset();
-
-    // return (
-    //   <>
-    //     <Input name={this.state.name} />
-    //   </>
-    //);
   };
-
-  //   reset = () => {
-  //     this.setState({ ...INITIAL_STATE });
-  //   };
 
   render() {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <p>Name</p>
-          <input
+          <Input
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
-            type="text"
-            name="name"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
           />
-          <button type="submit">Add contact</button>
-          {}
           <NamesList allContacts={this.state.contacts} />
         </form>
       </>
@@ -63,9 +36,28 @@ export class Phonebook extends Component {
   }
 }
 
-const NamesList = ({ allContacts, name, id }) => {
-  //allContacts.map(contact => console.log(contact));
+const Input = ({ value, onChange }) => {
+  return (
+    <>
+      <h2>Name</h2>
+      <input
+        className="input--name"
+        value={value}
+        onChange={onChange}
+        type="text"
+        name="name"
+        // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+      />
+      <button className="button--submit" type="submit">
+        Add contact
+      </button>
+    </>
+  );
+};
 
+const NamesList = ({ allContacts, id }) => {
   const listItems = allContacts.map(contact => {
     id = nanoid();
     return (
