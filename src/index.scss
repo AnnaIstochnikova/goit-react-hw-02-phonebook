@@ -18,6 +18,9 @@ code {
 
 } */
 form {
+  padding: 5px;
+  border: 2px rgb(200, 190, 190) solid;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -25,7 +28,6 @@ form {
 h2 {
   font-size: 30px;
   margin: 0;
-  margin-bottom: 20px;
 }
 
 div {
@@ -34,6 +36,7 @@ div {
   display: flex;
   flex-direction: column;
   align-items: left;
+  gap: 15px;
 }
 
 .button--submit {
@@ -66,6 +69,7 @@ input,
 }
 
 ul {
+  margin: 0;
   padding-left: 0;
   list-style: none;
 }
@@ -76,8 +80,16 @@ ul {
   font-weight: 600;
   margin-left: 10px;
   border-radius: 15px;
+  &:hover {
+    cursor: pointer;
+    background-color: #fd6e00;
+  }
 }
 
-// .find-contact {
-//   margin-bottom: 50px;
-// }
+h1 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
