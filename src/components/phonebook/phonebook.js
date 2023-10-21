@@ -92,6 +92,7 @@ export class Phonebook extends Component {
         <h3>Find contacts by name</h3>
         <input
           type="text"
+          className="find-contact"
           name="find-contact"
           onChange={this.findContact}
         ></input>
@@ -106,7 +107,11 @@ const NamesList = ({ allContacts, onDelete, id }) => {
     return (
       <li key={id}>
         {contact}
-        <button type="button" onClick={() => onDelete(contact)}>
+        <button
+          className="button-delete"
+          type="button"
+          onClick={() => onDelete(contact)}
+        >
           Delete
         </button>
       </li>
