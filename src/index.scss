@@ -19,6 +19,8 @@ code {
 } */
 form {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -34,6 +36,7 @@ div {
 }
 
 .button--submit {
+  margin-top: 30px;
   border-color: rgb(86, 86, 86);
   color: white;
   background-color: #23272f;
@@ -63,4 +66,5 @@ input,
 
 ul {
   padding-left: 0;
+  list-style: none;
 }

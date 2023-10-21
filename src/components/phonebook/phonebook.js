@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 export class Phonebook extends Component {
-  state = { contacts: [], name: '', number: '' };
+  state = { contacts: [], name: '', number: '', showContactList: false };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -16,6 +16,7 @@ export class Phonebook extends Component {
         contacts: allContacts,
         name: '',
         number: '',
+        showContactList: true,
       };
     });
   };
@@ -25,7 +26,7 @@ export class Phonebook extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const { name, number } = this.state;
+    const { name, number, showContactList } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -55,7 +56,7 @@ export class Phonebook extends Component {
               Add contact
             </button>
           </>
-          <NamesList allContacts={this.state.contacts} />
+          {showContactList && <NamesList allContacts={this.state.contacts} />}
         </form>
       </>
     );
