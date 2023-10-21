@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 
 const INITIAL_STATE = {
   contacts: [],
@@ -13,6 +14,7 @@ export class Phonebook extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    console.log(event);
     const form = event.currentTarget;
     const name = form.elements.name.value;
     //this.props.onSubmit({ ...this.state });
@@ -21,11 +23,12 @@ export class Phonebook extends Component {
       const newAndOldContacts = [...prevState.contacts, name];
       return {
         contacts: newAndOldContacts,
-        name: name,
+        name: '',
       };
     });
+
     //this.reset();
-    console.log(this.state);
+
     // return (
     //   <>
     //     <Input name={this.state.name} />
@@ -43,6 +46,8 @@ export class Phonebook extends Component {
         <form onSubmit={this.handleSubmit}>
           <p>Name</p>
           <input
+            value={this.state.name}
+            onChange={e => this.setState({ name: e.target.value })}
             type="text"
             name="name"
             // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -60,10 +65,14 @@ export class Phonebook extends Component {
 
 const NamesList = ({ allContacts, name, id }) => {
   //allContacts.map(contact => console.log(contact));
-  const listItems = allContacts.map(contact => (
-    <li key={7}>
-      <p>{contact}</p>
-    </li>
-  ));
+
+  const listItems = allContacts.map(contact => {
+    id = nanoid();
+    return (
+      <li key={id}>
+        <p>{contact}</p>
+      </li>
+    );
+  });
   return <ul>{listItems}</ul>;
 };
