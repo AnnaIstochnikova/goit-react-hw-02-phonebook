@@ -5,7 +5,7 @@ import { Phonebook } from './phonebook/phonebook';
 export const App = () => {
   return (
     <div>
-      <Phonebook onSubmit={value => console.log(value)} name={''} />
+      <Phonebook />
     </div>
   );
 };

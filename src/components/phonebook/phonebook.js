@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 export class Phonebook extends Component {
-  state = { contacts: [], name: '', number: '', showContactList: false };
+  state = { contacts: [], name: '', number: '', showContactList: true };
+
+  deleteContact = contact => {
+    this.setState(prevState => {
+      const filterAfterDelete = [
+        ...prevState.contacts.filter(oldContact => oldContact !== contact),
+      ];
+      return {
+        contacts: filterAfterDelete,
+      };
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -56,19 +67,28 @@ export class Phonebook extends Component {
               Add contact
             </button>
           </>
-          {showContactList && <NamesList allContacts={this.state.contacts} />}
+          {showContactList && (
+            <NamesList
+              allContacts={this.state.contacts}
+              onDelete={this.deleteContact}
+            />
+          )}
         </form>
+        <input></input>
       </>
     );
   }
 }
 
-const NamesList = ({ allContacts, id }) => {
+const NamesList = ({ allContacts, onDelete, id }) => {
   const listItems = allContacts.map(contact => {
     id = nanoid();
     return (
       <li key={id}>
-        <p>{contact}</p>
+        {contact}
+        <button type="button" onClick={() => onDelete(contact)}>
+          Delete
+        </button>
       </li>
     );
   });
