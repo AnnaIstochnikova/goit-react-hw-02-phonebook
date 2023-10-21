@@ -2,17 +2,29 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 export class Phonebook extends Component {
-  state = { contacts: [], name: '', number: '', showContactList: true };
+  state = {
+    contacts: [],
+    name: '',
+    number: '',
+    showContactList: true,
+    filter: '',
+  };
 
   deleteContact = contact => {
     this.setState(prevState => {
-      const filterAfterDelete = [
+      const contactsAfterDelete = [
         ...prevState.contacts.filter(oldContact => oldContact !== contact),
       ];
       return {
-        contacts: filterAfterDelete,
+        contacts: contactsAfterDelete,
       };
     });
+  };
+
+  findContact = event => {
+    event.preventDefault();
+    this.setState({ filter: event.target.value.toLowerCase() });
+    //console.log(searchWord);
   };
 
   handleSubmit = event => {
@@ -37,7 +49,10 @@ export class Phonebook extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const { name, number, showContactList } = this.state;
+    const { name, number, contacts, filter, showContactList } = this.state;
+    const filteredContacts = contacts.filter(contact =>
+      contact.toLowerCase().includes(filter)
+    );
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -69,12 +84,17 @@ export class Phonebook extends Component {
           </>
           {showContactList && (
             <NamesList
-              allContacts={this.state.contacts}
+              allContacts={filteredContacts}
               onDelete={this.deleteContact}
             />
           )}
         </form>
-        <input></input>
+        <h3>Find contacts by name</h3>
+        <input
+          type="text"
+          name="find-contact"
+          onChange={this.findContact}
+        ></input>
       </>
     );
   }
