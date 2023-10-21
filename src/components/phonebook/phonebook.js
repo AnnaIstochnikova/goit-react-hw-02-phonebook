@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { ContactForm, Filter, ContactList } from './parts';
+import { ContactList } from './contact-list/contactList';
+import { Filter } from './filter/filter';
+import { ContactForm } from './contact-form/contactForm';
 
 export class Phonebook extends Component {
   state = {

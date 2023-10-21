@@ -1,22 +1,4 @@
-import { nanoid } from 'nanoid';
-
-export { Filter, ContactForm, ContactList };
-
-const Filter = ({ filterFn }) => {
-  return (
-    <>
-      <h3>Find contacts by name</h3>
-      <input
-        type="text"
-        className="find-contact"
-        name="find-contact"
-        onChange={filterFn}
-      ></input>
-    </>
-  );
-};
-
-const ContactForm = ({ handleSubmitFn }) => {
+export const ContactForm = ({ handleSubmitFn }) => {
   return (
     <form onSubmit={event => handleSubmitFn(event)}>
       <>
@@ -43,24 +25,4 @@ const ContactForm = ({ handleSubmitFn }) => {
       </>
     </form>
   );
-};
-
-const ContactList = ({ allContacts, onDelete, id }) => {
-  const listItems = allContacts.map(contact => {
-    id = nanoid();
-    return (
-      <li key={id}>
-        {contact}
-        <button
-          className="button-delete"
-          type="button"
-          onClick={() => onDelete(contact)}
-        >
-          Delete
-        </button>
-      </li>
-    );
-  });
-
-  return <ul>{listItems}</ul>;
 };
