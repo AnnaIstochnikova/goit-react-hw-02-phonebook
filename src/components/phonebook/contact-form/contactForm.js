@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ContactForm = ({ handleSubmitFn }) => {
   return (
     <form onSubmit={event => handleSubmitFn(event)}>
@@ -25,4 +27,9 @@ export const ContactForm = ({ handleSubmitFn }) => {
       </>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  h3: PropTypes.string,
+  onSubmit: PropTypes.func,
 };

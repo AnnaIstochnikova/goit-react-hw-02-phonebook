@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ allContacts, onDelete, id }) => {
   const listItems = allContacts.map(contact => {
@@ -18,4 +19,10 @@ export const ContactList = ({ allContacts, onDelete, id }) => {
   });
 
   return <ul>{listItems}</ul>;
+};
+
+ContactList.propTypes = {
+  listItems: PropTypes.array,
+  onDelete: PropTypes.func,
+  id: PropTypes.string,
 };

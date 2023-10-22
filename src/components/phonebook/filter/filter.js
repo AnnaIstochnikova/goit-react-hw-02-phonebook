@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Filter = ({ filterFn }) => {
   return (
     <>
@@ -10,4 +12,10 @@ export const Filter = ({ filterFn }) => {
       ></input>
     </>
   );
+};
+
+Filter.propTypes = {
+  h3: PropTypes.string,
+  filterFn: PropTypes.func,
+  input: PropTypes.string,
 };

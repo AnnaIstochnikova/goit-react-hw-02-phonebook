@@ -1,4 +1,4 @@
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import { Filter } from './filter/filter';
@@ -81,3 +81,13 @@ export class Phonebook extends Component {
     );
   }
 }
+
+Phonebook.propTypes = {
+  deleteContact: PropTypes.func,
+  findContact: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  allContacts: PropTypes.array,
+  filteredContacts: PropTypes.array,
+  h1: PropTypes.string,
+  h2: PropTypes.string,
+};
