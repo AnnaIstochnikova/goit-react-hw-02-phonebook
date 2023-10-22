@@ -19,6 +19,7 @@ export class Phonebook extends Component {
       ];
       if (contactsAfterDelete.length === 0) {
         return {
+          contacts: contactsAfterDelete,
           showContactList: false,
         };
       }
@@ -83,6 +84,11 @@ export class Phonebook extends Component {
 }
 
 Phonebook.propTypes = {
+  state: PropTypes.shape({
+    contacts: PropTypes.array,
+    showContactList: PropTypes.bool,
+    filter: PropTypes.string,
+  }),
   deleteContact: PropTypes.func,
   findContact: PropTypes.func,
   handleSubmit: PropTypes.func,
