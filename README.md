@@ -1,8 +1,14 @@
 # GoIt-react-hw-02-phonebook
 
+
 ## Description
 
 This project is a simple phonebook application built with React. It allows users to store and manage their contacts. You can add new contacts, delete existing ones, and search for contacts by name. It's a great exercise for practicing React, state management, and handling user interactions.
+
+## Screenshot
+Here is a screenshot of the phonebook application:
+
+![image](https://github.com/AnnaIstochnikova/goit-react-hw-02-phonebook/assets/122437399/8da38b03-4bb8-40f7-99d5-4cce309c7744)
 
 ## Installation
 To run this project locally, follow these steps:
@@ -25,7 +31,3 @@ npm start
 
 5. Open your web browser and go to http://localhost:3000 to use the phonebook application.
 
-## Screenshot
-Here is a screenshot of the phonebook application:
-
-![image](https://github.com/AnnaIstochnikova/goit-react-hw-02-phonebook/assets/122437399/8da38b03-4bb8-40f7-99d5-4cce309c7744)
