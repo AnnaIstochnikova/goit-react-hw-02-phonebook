@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const ContactList = ({ allContacts, onDelete, id }) => {
   const listItems = allContacts.map(contact => {
-    id = nanoid();
+    const id = nanoid();
     return (
       <li key={id}>
         {contact}
